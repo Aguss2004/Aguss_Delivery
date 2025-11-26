@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SGARCIA Delivery - Santa Victoria Este</title>
+
+  <style>
+    :root {
+      --primary: #ff4b3a;
+      --primary-dark: #e23d2d;
+      --bg: #0f172a;
+      --card-bg: #111827;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --accent: #22c55e;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* LOGO */
+    .main-logo {
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-right: 8px;
+    }
+
+    .food-icon {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      display: block;
+      margin-bottom: .6rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(15,23,42,0.9);
+      border-bottom: 1px solid rgba(148,163,184,0.15);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .nav-cta {
+      padding: .45rem .9rem;
+      background: var(--primary);
+      border-radius: 999px;
+      font-weight: 600;
+      box-shadow: 0 10px 18px rgba(248,113,113,0.45);
+      font-size: .9rem;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 1.5rem auto 2.5rem;
+      padding: 0 1.2rem;
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,0.9fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .2rem .6rem;
+      border-radius: 999px;
+      background: rgba(22,163,74,0.08);
+      border: 1px solid rgba(34,197,94,0.35);
+      color: var(--accent);
+      font-size: .78rem;
+      margin-bottom: .6rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      font-weight: 800;
+      margin-bottom: .6rem;
+    }
+
+    .hero-title span { color: #f97316; }
+
+    .hero-text {
+      color: var(--text-muted);
+      max-width: 420px;
+      margin-bottom: 1rem;
+      font-size: .95rem;
+    }
+
+    .btn-primary {
+      padding: .7rem 1.4rem;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 12px 25px rgba(248,113,113,0.55);
+      border: none;
+      cursor: pointer;
+      font-size: .95rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 1rem;
+      padding: .9rem;
+      border: 1px solid rgba(148,163,184,0.22);
+      font-size: .9rem;
+      text-align: center;
+    }
+
+    .price {
+      color: #f97316;
+      font-weight: 700;
+    }
+
+    /* FORMULARIO */
+    .order-form {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(148,163,184,0.24);
+      font-size: .9rem;
+    }
+
+    .order-form input,
+    .order-form textarea,
+    .order-form select {
+      width: 100%;
+      padding: .5rem .6rem;
+      border-radius: .5rem;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: #020617;
+      color: var(--text-main);
+      margin-bottom: .7rem;
+      font-size: .9rem;
+    }
+
+    .order-success,
+    .order-summary {
+      margin-top: .6rem;
+      background: rgba(15,23,42,0.9);
+      padding: .9rem;
+      border-radius: .75rem;
+      border: 1px solid rgba(148,163,184,0.35);
+      display: none;
+      font-size: .85rem;
+    }
+
+    .payment-info {
+      margin-top: 1rem;
+      padding: .9rem;
+      border-radius: .75rem;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.35);
+      font-size: .85rem;
+    }
+
+    .whatsapp-btn {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      padding: .6rem 1rem;
+      border-radius: 999px;
+      background: #22c55e;
+      color: #022c22;
+      font-size: .9rem;
+      font-weight: 600;
+      box-shadow: 0 18px 30px rgba(34,197,94,0.55);
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <img src="img/logo.png" class="main-logo" />
+        SGARCIA
+      </div>
+      <a class="nav-cta" href="#pedido">Hacer pedido</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="hero-badge">🚚 Delivery en Santa Victoria Este</div>
+
+      <h1 class="hero-title">
+        Delivery <span>SGARCIA</span>
+      </h1>
+
+      <p class="hero-text">
+        Pedí tu comida desde la web, pagá con tarjeta (crédito o débito) por transferencia
+        y te lo llevamos a tu dirección.
+      </p>
+
+      <button onclick="location.href='#pedido'" class="btn-primary">Hacer pedido</button>
+    </div>
+  </section>
+
+  <!-- MENÚ -->
+  <section id="menu">
+    <div class="section-container">
+      <h2 class="section-title">Menú SGARCIA</h2>
+
+      <div class="grid">
+
+        <article class="card">
+          <img src="img/pizza.png" class="food-icon">
+          <h3>Pizza especial</h3>
+          <p>Muzza, jamón, morrón y aceitunas.</p>
+          <span class="price">$ A definir</span>
+        </article>
+
+        <article class="card">
+          <img src="img/lomo.png" class="food-icon">
+          <h3>Lomo completo</h3>
+          <p>Carne, jamón, queso, huevo y verduras.</p>
+          <span class="price">$ A definir</span>
+        </article>
+
+        <article class="card">
+          <img src="img/hamburguesa.png" class="food-icon">
+          <h3>Hamburguesa + papas</h3>
+          <p>Simple o doble.</p>
+          <span class="price">$ A definir</span>
+        </article>
+
+        <article class="card">
+          <img src="img/empanadas.png" class="food-icon">
+          <h3>Empanadas (docena)</h3>
+          <p>Sabores varios.</p>
+          <span class="price">$ A definir</span>
+        </article>
+
+        <article class="card">
+          <img src="img/papas.png" class="food-icon">
+          <h3>Papas fritas</h3>
+          <p>Bien crocantes.</p>
+          <span class="price">$ A definir</span>
+        </article>
+
+        <article class="card">
+          <img src="img/bebidas.png" class="food-icon">
+          <h3>Bebidas frías</h3>
+          <p>Gaseosas, agua, cerveza.</p>
+          <span class="price">$ A definir</span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO -->
+  <section id="pedido">
+    <div class="section-container">
+      <h2 class="section-title">Hacer pedido</h2>
+
+      <form id="order-form" class="order-form">
+        <label>Nombre y apellido</label>
+        <input id="nombre" required />
+
+        <label>Teléfono</label>
+        <input id="telefono" required />
+
+        <label>Dirección</label>
+        <input id="direccion" required />
+
+        <label>¿Qué querés pedir?</label>
+        <textarea id="producto" rows="3" required></textarea>
+
+        <label>Método de pago</label>
+        <select id="metodo" required>
+          <option value="">Elegí uno</option>
+          <option value="Crédito">Tarjeta de crédito</option>
+          <option value="Débito">Tarjeta de débito</option>
+        </select>
+
+        <button type="submit" class="btn-primary">Confirmar pedido</button>
+
+        <div id="order-success" class="order-success">
+          ¡Pedido confirmado! Abajo tenés tu número de pedido y datos para pagar.
+        </div>
+
+        <div id="order-summary" class="order-summary">
+          <strong>Resumen del pedido:</strong><br>
+          N° pedido: <span id="order-number"></span><br>
+          Nombre: <span id="order-name"></span><br>
+          Pago: <span id="order-method"></span><br>
+          Pedido: <span id="order-items"></span>
+        </div>
+      </form>
+
+      <div class="payment-info">
+        <strong>Datos para transferir:</strong><br>
+        Titular: Santos Agustin Garcia<br>
+        CBU: 4530000800016228333264<br>
+        Alias: SGARCIA.45.NX<br>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <a
+    class="whatsapp-btn"
+    href="https://wa.me/543873108067?text=Hola,%20tengo%20un%20reclamo%20sobre%20mi%20pedido"
+    target="_blank">
+    🟢 Reclamos
+  </a>
+
+  <script>
+    let orderNumber = 0;
+
+    const form = document.getElementById("order-form");
+    const success = document.getElementById("order-success");
+    const summary = document.getElementById("order-summary");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      orderNumber++;
+
+      document.getElementById("order-number").textContent = orderNumber;
+      document.getElementById("order-name").textContent = document.getElementById("nombre").value;
+      document.getElementById("order-method").textContent = document.getElementById("metodo").value;
+      document.getElementById("order-items").textContent = document.getElementById("producto").value;
+
+      success.style.display = "block";
+      summary.style.display = "block";
+
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
