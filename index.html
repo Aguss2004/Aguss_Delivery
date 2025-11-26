@@ -25,6 +25,19 @@
     }
     a { text-decoration: none; color: inherit; }
 
+    /* CONTENEDOR SECCIONES */
+    .section-container {
+      max-width: 1100px;
+      margin: 0 auto 2.5rem;
+      padding: 0 1.2rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
     /* LOGO */
     .main-logo {
       width: 55px;
@@ -39,7 +52,7 @@
       height: 60px;
       object-fit: contain;
       display: block;
-      margin-bottom: .6rem;
+      margin: 0 auto .6rem;
     }
 
     header {
@@ -204,6 +217,20 @@
       gap: .4rem;
     }
 
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -213,7 +240,7 @@
   <header>
     <nav class="nav">
       <div class="logo">
-        <img src="img/logo.png" class="main-logo" />
+        <img src="imagen/logo.png" class="main-logo" alt="Logo SGARCIA" />
         SGARCIA
       </div>
       <a class="nav-cta" href="#pedido">Hacer pedido</a>
@@ -246,42 +273,42 @@
       <div class="grid">
 
         <article class="card">
-          <img src="img/pizza.png" class="food-icon">
+          <img src="imagen/pizza.png" class="food-icon" alt="Pizza especial">
           <h3>Pizza especial</h3>
           <p>Muzza, jamón, morrón y aceitunas.</p>
           <span class="price">$ A definir</span>
         </article>
 
         <article class="card">
-          <img src="img/lomo.png" class="food-icon">
+          <img src="imagen/lomo.png" class="food-icon" alt="Lomo completo">
           <h3>Lomo completo</h3>
           <p>Carne, jamón, queso, huevo y verduras.</p>
           <span class="price">$ A definir</span>
         </article>
 
         <article class="card">
-          <img src="img/hamburguesa.png" class="food-icon">
+          <img src="imagen/hamburguesa.png" class="food-icon" alt="Hamburguesa con papas">
           <h3>Hamburguesa + papas</h3>
           <p>Simple o doble.</p>
           <span class="price">$ A definir</span>
         </article>
 
         <article class="card">
-          <img src="img/empanadas.png" class="food-icon">
+          <img src="imagen/empanadas.png" class="food-icon" alt="Empanadas">
           <h3>Empanadas (docena)</h3>
           <p>Sabores varios.</p>
           <span class="price">$ A definir</span>
         </article>
 
         <article class="card">
-          <img src="img/papas.png" class="food-icon">
+          <img src="imagen/papas.png" class="food-icon" alt="Papas fritas">
           <h3>Papas fritas</h3>
           <p>Bien crocantes.</p>
           <span class="price">$ A definir</span>
         </article>
 
         <article class="card">
-          <img src="img/bebidas.png" class="food-icon">
+          <img src="imagen/bebidas.png" class="food-icon" alt="Bebidas frías">
           <h3>Bebidas frías</h3>
           <p>Gaseosas, agua, cerveza.</p>
           <span class="price">$ A definir</span>
